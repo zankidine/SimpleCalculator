@@ -23,6 +23,27 @@ body {
     position: relative;
 }
 
+.container .mode {
+    width: 7rem;
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    margin-left: 35%;
+}
+
+.container .mode button {
+    width: 45%;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: #292d36;
+    cursor: pointer;
+}
+
+.container .mode button.moon {
+    color: white;
+}
 .container .screen {
     width: 100%;
     height: 120px;
@@ -35,11 +56,13 @@ body {
     position: absolute;
     top: 10rem;
     padding-right: 1em;
+    overflow: hidden;
 }
 
 .container .screen .result {
     font-weight: bold;
     font-size: 3em;
+    overflow: hidden;
     display: none;
 }
 

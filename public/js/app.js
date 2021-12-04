@@ -45,6 +45,7 @@ one.addEventListener('click',() => {
     (detail.textContent == '0')
     ?detail.textContent = one.textContent
     : detail.textContent = detail.textContent + one.textContent;
+    
 })
 
 two.addEventListener('click',() => {
@@ -118,7 +119,11 @@ add.addEventListener('click',() => {
     if(detail.textContent == '0') {
         detail.textContent = '';
     } else {
-        detail.textContent = detail.textContent + ' ' + add.textContent + ' ';
+        if(result.textContent != '') {
+            detail.textContent = result.textContent + ' ' + add.textContent + ' ';
+        } else {
+            detail.textContent = detail.textContent + ' ' + add.textContent + ' ';
+        }
     }
 
 })
@@ -128,7 +133,11 @@ sub.addEventListener('click',() => {
     if(detail.textContent == '0') {
         detail.textContent = '';
     } else {
-        detail.textContent = detail.textContent + ' ' + sub.textContent + ' ';
+        if(result.textContent != '') {
+            detail.textContent = result.textContent + ' ' + sub.textContent + ' ';
+        } else {
+            detail.textContent = detail.textContent + ' ' + sub.textContent + ' ';
+        }
     }
 
 })
@@ -138,7 +147,12 @@ divide.addEventListener('click',() => {
     if(detail.textContent == '0') {
         detail.textContent = '';
     } else {
-        detail.textContent = detail.textContent + ' ' + '/' + ' ';
+        if(result.textContent != '') {
+            detail.textContent = result.textContent + ' ' + '/' + ' ';
+        } else {
+            detail.textContent = detail.textContent + ' ' + '/' + ' ';
+        }
+       
     }
 
 })
@@ -148,7 +162,11 @@ multiply.addEventListener('click',() => {
     if(detail.textContent == '0') {
         detail.textContent = '';
     } else {
-        detail.textContent = detail.textContent + ' ' + '*' + ' ';
+        if(result.textContent != '') {
+            detail.textContent = result.textContent + ' ' + '*' + ' ';
+        } else {
+            detail.textContent = detail.textContent + ' ' + '*' + ' ';
+        }
     }
 
 })
@@ -158,8 +176,24 @@ equal.addEventListener('click',() => {
     if(detail.textContent == '') {
         return;
     } else {
-        result.textContent = eval(detail.textContent);
+        r = eval(detail.textContent);
+        result.textContent = Number((r).toFixed(3));
         result.style.display = 'block';
     }
 
 })
+
+comma.addEventListener('click',() => {
+    
+ 
+    detail.textContent = detail.textContent + '.';
+    
+
+})
+
+
+// Mode dark
+
+const light = document.querySelector('.sun');
+const dark = document.querySelector('.moon');
+const container = document.querySelector('.container');
