@@ -10,6 +10,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #2ab1a4;
 }
 
 .container {
@@ -39,7 +40,7 @@ body {
 .container .screen .result {
     font-weight: bold;
     font-size: 3em;
-    
+    display: none;
 }
 
 .container .screen .detail {
