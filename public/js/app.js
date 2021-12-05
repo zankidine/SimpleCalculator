@@ -34,75 +34,74 @@ const comma = document.querySelector('.comma');
 const clear = document.querySelector('.clear');
 
 // Events number
-zero.addEventListener('click',() => {
-    // if detail == 0 then detail == 0 else detail concatenate 0
-    (detail.textContent == '0')
-    ?detail.textContent = `${zero}`.textContent
-    : detail.textContent = detail.textContent + zero.textContent;
-})
-one.addEventListener('click',() => {
-    // if detail == 0 then detail == 1 else detail concatenate 1
-    (detail.textContent == '0')
-    ?detail.textContent = one.textContent
-    : detail.textContent = detail.textContent + one.textContent;
-    
-})
+eventClickNumber(zero);
+eventClickNumber(one);
+eventClickNumber(two);
+eventClickNumber(tree);
+eventClickNumber(four);
+eventClickNumber(five);
+eventClickNumber(six);
+eventClickNumber(sevent);
+eventClickNumber(eight);
+eventClickNumber(nine);
 
-two.addEventListener('click',() => {
-    // if detail == 0 then detail == 2 else detail concatenate 2
-    (detail.textContent == '0')
-    ?detail.textContent = two.textContent
-    : detail.textContent = detail.textContent + two.textContent;
-})
+// Events operator
+eventClickOperator(add);
+eventClickOperator(sub);
+eventClickOperator(divide);
+eventClickOperator(multiply);
 
-tree.addEventListener('click',() => {
-    // if detail == 0 then detail == 3 else detail concatenate 3
-    (detail.textContent == '0')
-    ?detail.textContent = tree.textContent
-    : detail.textContent = detail.textContent + tree.textContent;
-})
+/**
+ * Event click number
+ * @param {*} number 
+ */
+function eventClickNumber(number) {
+    //
 
-four.addEventListener('click',() => {
-    // if detail == 0 then detail == 4 else detail concatenate 4
-    (detail.textContent == '0')
-    ?detail.textContent = four.textContent
-    : detail.textContent = detail.textContent + four.textContent;
-})
+    number.addEventListener('click', numberClick);
 
-five.addEventListener('click',() => {
-    // if detail == 0 then detail == 5 else detail concatenate 5
-    (detail.textContent == '0')
-    ?detail.textContent = five.textContent
-    : detail.textContent = detail.textContent + five.textContent;
-})
+    function numberClick () {
+        if (detail.textContent == '0') {
+            detail.textContent = number.textContent;
+        } else {
+            detail.textContent = detail.textContent + number.textContent;
+        }
+    }
+}
 
-six.addEventListener('click',() => {
-    // if detail == 0 then detail == 6 else detail concatenate 6
-    (detail.textContent == '0')
-    ?detail.textContent = five.textContent
-    : detail.textContent = detail.textContent + six.textContent;
-})
+/**
+ * 
+ * @param {*} operator 
+ */
+function eventClickOperator(operator) {
 
-sevent.addEventListener('click',() => {
-    // if detail == 0 then detail == 7 else detail concatenate 7
-    (detail.textContent == '0')
-    ?detail.textContent = sevent.textContent
-    : detail.textContent = detail.textContent + sevent.textContent;
-})
+    operator.addEventListener('click', operatorClick);
 
-eight.addEventListener('click',() => {
-    // if detail == 0 then detail == 8 else detail concatenate 8
-    (detail.textContent == '0')
-    ?detail.textContent = eight.textContent
-    : detail.textContent = detail.textContent + eight.textContent;
-})
+    function operatorClick() {
+        if(detail.textContent == '0') {
+            detail.textContent = '';
+        } else {
+            if(result.textContent != '') {
+                if(operator.textContent == '') {
+                    detail.textContent = result.textContent + ' ' + '/' + ' ';
+                } else {
+                    detail.textContent = detail.textContent + ' ' + '/' + ' ';
+                }
 
-nine.addEventListener('click',() => {
-    // if detail == 0 then detail == 9 else detail concatenate 9
-    (detail.textContent == '0')
-    ?detail.textContent = nine.textContent
-    : detail.textContent = detail.textContent + nine.textContent;
-})
+                if(operator.textContent == 'X') {
+                    detail.textContent = result.textContent + ' ' + '*' + ' ';
+                } else {
+                    detail.textContent = detail.textContent + ' ' + '*' + ' ';
+                }
+                detail.textContent = result.textContent + ' ' + operator.textContent + ' ';
+            } else {
+                detail.textContent = detail.textContent + ' ' + operator.textContent + ' ';
+            }
+        }
+    }
+}
+
+
 
 // Events clear screen
 clear.addEventListener('click', () => {
@@ -113,64 +112,7 @@ clear.addEventListener('click', () => {
     result.style.display = 'none';
 })
 
-// Events operator
-add.addEventListener('click',() => {
-    // if detail == 0 then detail == '' else detail concatenate +
-    if(detail.textContent == '0') {
-        detail.textContent = '';
-    } else {
-        if(result.textContent != '') {
-            detail.textContent = result.textContent + ' ' + add.textContent + ' ';
-        } else {
-            detail.textContent = detail.textContent + ' ' + add.textContent + ' ';
-        }
-    }
-
-})
-
-sub.addEventListener('click',() => {
-    // if detail == 0 then detail == '' else detail concatenate +
-    if(detail.textContent == '0') {
-        detail.textContent = '';
-    } else {
-        if(result.textContent != '') {
-            detail.textContent = result.textContent + ' ' + sub.textContent + ' ';
-        } else {
-            detail.textContent = detail.textContent + ' ' + sub.textContent + ' ';
-        }
-    }
-
-})
-
-divide.addEventListener('click',() => {
-    // if detail == 0 then detail == '' else detail concatenate +
-    if(detail.textContent == '0') {
-        detail.textContent = '';
-    } else {
-        if(result.textContent != '') {
-            detail.textContent = result.textContent + ' ' + '/' + ' ';
-        } else {
-            detail.textContent = detail.textContent + ' ' + '/' + ' ';
-        }
-       
-    }
-
-})
-
-multiply.addEventListener('click',() => {
-    // if detail == 0 then detail == '' else detail concatenate +
-    if(detail.textContent == '0') {
-        detail.textContent = '';
-    } else {
-        if(result.textContent != '') {
-            detail.textContent = result.textContent + ' ' + '*' + ' ';
-        } else {
-            detail.textContent = detail.textContent + ' ' + '*' + ' ';
-        }
-    }
-
-})
-
+// Events equal
 equal.addEventListener('click',() => {
     // if detail == 0 then detail == '' else detail concatenate +
     if(detail.textContent == '') {
@@ -183,12 +125,10 @@ equal.addEventListener('click',() => {
 
 })
 
+// Events comma
 comma.addEventListener('click',() => {
-    
- 
+    //
     detail.textContent = detail.textContent + '.';
-    
-
 })
 
 
@@ -197,3 +137,4 @@ comma.addEventListener('click',() => {
 const light = document.querySelector('.sun');
 const dark = document.querySelector('.moon');
 const container = document.querySelector('.container');
+
